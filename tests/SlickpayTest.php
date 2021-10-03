@@ -4,7 +4,7 @@ namespace Slickpay\Tests;
 
 use PHPUnit\Framework\TestCase;
 
-class ExampleTest extends TestCase
+class SlickpayTest extends TestCase
 {
     public function testExample(): void
     {
