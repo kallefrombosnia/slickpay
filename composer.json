@@ -1,0 +1,38 @@
+{
+    "name": "slickpay/slickpay",
+    "description": "Lightweight abstraction layer for payment gateways",
+    "type": "library",
+    "require": {
+        "php": "^7.4|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "friendsofphp/php-cs-fixer": "^3.1",
+        "vimeo/psalm": "^4"
+    },
+    "scripts": {
+        "psalm": "vendor/bin/psalm",
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-text",
+        "format": "vendor/bin/php-cs-fixer fix"
+    },
+    "autoload": {
+        "psr-4": {
+            "Slickpay\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Slickpay\\Tests\\": "tests"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Benjamin Beganović",
+            "email": "k1pstabug@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
