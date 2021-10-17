@@ -5,6 +5,7 @@ namespace Slickpay;
 use Psr\Http\Client\ClientInterface;
 use Slickpay\Common\Gateway\GatewayInterface;
 use Slickpay\Common\Request\RequestInterface;
+use Slickpay\Common\Response\ResponseInterface;
 
 class Slickpay
 {
@@ -53,5 +54,16 @@ class Slickpay
     public function getClient(): ClientInterface
     {
         return $this->client;
+    }
+
+    public function send(): ResponseInterface
+    {
+        $response = $this->client->sendRequest(
+            $this->request->getPsr7Request()
+        );
+
+        $responseClass = $this->request->getResponseClass();
+
+        return (new $responseClass($response))->update();
     }
 }
