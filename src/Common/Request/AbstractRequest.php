@@ -3,12 +3,11 @@
 namespace Slickpay\Common\Request;
 
 use GuzzleHttp\Psr7\Request;
-use Psr\Http\Message\RequestInterface;
-use Slickpay\Common\Request\RequestInterface as SlickpayRequestInterface;
+use Slickpay\Common\Request\RequestInterface;
 
-abstract class AbstractRequest implements SlickpayRequestInterface
+abstract class AbstractRequest implements RequestInterface
 {
-    protected RequestInterface $psr7Request;
+    protected \Psr\Http\Message\RequestInterface $psr7Request;
 
     public function __construct()
     {
