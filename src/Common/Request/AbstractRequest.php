@@ -7,10 +7,15 @@ use Slickpay\Common\Request\RequestInterface;
 
 abstract class AbstractRequest implements RequestInterface
 {
-    protected \Psr\Http\Message\RequestInterface $psr7Request;
+    protected \Psr\Http\Message\RequestInterface $request;
 
     public function __construct()
     {
-        $this->psr7Request = new Request($this->method(), $this->endpoint(), $this->headers(), $this->body());
+        $this->request = new Request($this->getMethod(), $this->getEndpoint(), $this->getHeaders(), \json_encode($this->getBody()));
+    }
+
+    public function getPsr7Request(): \Psr\Http\Message\RequestInterface
+    {
+        return $this->request;
     }
 }
