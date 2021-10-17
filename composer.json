@@ -3,7 +3,8 @@
     "description": "Lightweight abstraction layer for payment gateways",
     "type": "library",
     "require": {
-        "php": "^7.4|^8.0"
+        "php": "^7.4|^8.0",
+        "guzzlehttp/psr7": "^2.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
