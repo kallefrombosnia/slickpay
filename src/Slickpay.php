@@ -2,6 +2,7 @@
 
 namespace Slickpay;
 
+use Psr\Http\Client\ClientInterface;
 use Slickpay\Common\Gateway\GatewayInterface;
 use Slickpay\Common\Request\RequestInterface;
 
@@ -10,6 +11,13 @@ class Slickpay
     protected GatewayInterface $gateway;
 
     protected RequestInterface $request;
+
+    protected ClientInterface $client;
+
+    public function __construct()
+    {
+        $this->client = new \GuzzleHttp\Client();
+    }
 
     public function setGateway(string $gateway): self
     {
@@ -33,5 +41,17 @@ class Slickpay
     public function getRequest(): RequestInterface
     {
         return $this->request;
+    }
+
+    public function setClient(ClientInterface $client): self
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    public function getClient(): ClientInterface
+    {
+        return $this->client;
     }
 }
