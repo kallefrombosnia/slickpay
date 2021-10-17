@@ -6,23 +6,28 @@ use Slickpay\Common\Request\AbstractRequest;
 
 class ExampleRequest extends AbstractRequest
 {
-    public function method(): string
+    public function getResponseClass(): string
+    {
+        return ExampleResponse::class;
+    }
+
+    public function getMethod(): string
     {
         return 'POST';
     }
 
-    public function endpoint(): string
+    public function getEndpoint(): string
     {
         return 'https://github.com/slickpay/slickpay';
     }
 
-    public function headers(): array
+    public function getHeaders(): array
     {
         return [];
     }
 
-    public function body()
+    public function getBody()
     {
-        return '';
+        return [];
     }
 }
