@@ -3,7 +3,6 @@
 namespace Slickpay\Common\Response;
 
 use Psr\Http\Message\MessageInterface;
-use RuntimeException;
 
 abstract class AbstractResponse implements ResponseInterface
 {

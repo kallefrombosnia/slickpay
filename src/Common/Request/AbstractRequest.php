@@ -3,7 +3,6 @@
 namespace Slickpay\Common\Request;
 
 use GuzzleHttp\Psr7\Request;
-use Slickpay\Common\Request\RequestInterface;
 
 abstract class AbstractRequest implements RequestInterface
 {

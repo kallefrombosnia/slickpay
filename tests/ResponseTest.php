@@ -4,7 +4,6 @@ namespace Slickpay\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\MessageInterface;
-use Slickpay\Common\Response\ResponseInterface;
 use Slickpay\Slickpay;
 use Slickpay\Tests\Gateway\Requests\ExampleRequest;
 use Slickpay\Tests\Gateway\Requests\ExampleResponse;
