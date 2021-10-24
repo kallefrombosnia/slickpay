@@ -18,7 +18,7 @@ class ExampleRequest extends AbstractRequest
 
     public function getEndpoint(): string
     {
-        return \sprintf('https://github.com/slickpay/slickpay?foo=%s', $this->getParameter('foo', false));
+        return \sprintf('https://github.com/slickpay/slickpay?foo=%s', $this->parameters['foo'] ?? '');
     }
 
     public function getHeaders(): array
@@ -30,6 +30,6 @@ class ExampleRequest extends AbstractRequest
 
     public function getBody()
     {
-        return [];
+        return $this->body;
     }
 }

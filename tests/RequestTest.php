@@ -27,7 +27,7 @@ class RequestTest extends TestCase
 
     public function testPassingEndpointProperties(): void
     {
-        $this->slickpay->setRequest(ExampleRequest::class, ['foo' => 'bar']);
+        $this->slickpay->setRequest(ExampleRequest::class, [], ['foo' => 'bar']);
 
         $this->assertStringContainsString('bar', $this->slickpay->getRequest()->getEndpoint());
     }
@@ -38,7 +38,7 @@ class RequestTest extends TestCase
 
         $this->assertNotContains('foo', $this->slickpay->getRequest()->getHeaders());
 
-        $this->slickpay->setRequest(ExampleRequest::class, [], ['foo' => 'bar']);
+        $this->slickpay->setRequest(ExampleRequest::class, [], [], ['foo' => 'bar']);
 
         $this->assertContains('foo', array_keys($this->slickpay->getRequest()->request()->getHeaders()));
     }
@@ -49,8 +49,19 @@ class RequestTest extends TestCase
 
         $this->assertEquals('value', $this->slickpay->getRequest()->request()->getHeaders()['example'][0]);
 
-        $this->slickpay->setRequest(ExampleRequest::class, [], ['example' => 'something-else']);
+        $this->slickpay->setRequest(ExampleRequest::class, [], [], ['example' => 'something-else']);
 
         $this->assertEquals('something-else', $this->slickpay->getRequest()->request()->getHeaders()['example'][0]);
+    }
+
+    public function testPassingBody(): void
+    {
+        $this->slickpay->setRequest(ExampleRequest::class);
+
+        $this->assertSame([], $this->slickpay->getRequest()->getBody());
+
+        $this->slickpay->setRequest(ExampleRequest::class, ['foo' => 'bar']);
+
+        $this->assertSame(['foo' => 'bar'], $this->slickpay->getRequest()->getBody());
     }
 }
