@@ -2,9 +2,9 @@
 
 namespace Slickpay\Tests;
 
+use Slickpay\Slickpay;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\MessageInterface;
-use Slickpay\Slickpay;
 use Slickpay\Tests\Gateway\Requests\ExampleRequest;
 use Slickpay\Tests\Gateway\Requests\ExampleResponse;
 

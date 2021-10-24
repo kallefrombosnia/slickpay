@@ -2,9 +2,9 @@
 
 namespace Slickpay\Tests;
 
+use Slickpay\Slickpay;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientInterface;
-use Slickpay\Slickpay;
 
 class HttpClientTest extends TestCase
 {

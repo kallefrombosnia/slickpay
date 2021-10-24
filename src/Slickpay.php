@@ -2,8 +2,8 @@
 
 namespace Slickpay;
 
-use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
+use Psr\Http\Client\ClientExceptionInterface;
 use Slickpay\Common\Gateway\GatewayInterface;
 use Slickpay\Common\Request\RequestInterface;
 use Slickpay\Common\Response\ResponseInterface;
