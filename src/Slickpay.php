@@ -59,10 +59,10 @@ class Slickpay
     public function send(): ResponseInterface
     {
         $response = $this->client->sendRequest(
-            $this->request->getPsr7Request()
+            $this->request->request()
         );
 
-        $responseClass = $this->request->getResponseClass();
+        $responseClass = $this->request->response();
 
         return (new $responseClass($response))->update();
     }
