@@ -24,4 +24,11 @@ class RequestTest extends TestCase
 
         $this->assertInstanceOf(RequestInterface::class, $this->slickpay->getRequest());
     }
+
+    public function testPassingEndpointProperties(): void
+    {
+        $this->slickpay->setRequest(ExampleRequest::class, ['foo' => 'bar']);
+
+        $this->assertStringContainsString('bar', $this->slickpay->getRequest()->endpoint());
+    }
 }

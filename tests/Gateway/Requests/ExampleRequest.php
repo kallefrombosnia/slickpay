@@ -18,12 +18,14 @@ class ExampleRequest extends AbstractRequest
 
     public function endpoint(): string
     {
-        return 'https://github.com/slickpay/slickpay';
+        return \sprintf('https://github.com/slickpay/slickpay?foo=%s', $this->getParameter('foo', false));
     }
 
     public function headers(): array
     {
-        return [];
+        return [
+            'a' => 'b',
+        ];
     }
 
     public function body()
