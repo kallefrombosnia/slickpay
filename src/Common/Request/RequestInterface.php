@@ -4,15 +4,15 @@ namespace Slickpay\Common\Request;
 
 interface RequestInterface
 {
-    public function getPsr7Request(): \Psr\Http\Message\RequestInterface;
+    public function request(): \Psr\Http\Message\RequestInterface;
 
-    public function getResponseClass(): string;
+    public function response(): string;
 
-    public function getMethod(): string;
+    public function method(): string;
 
-    public function getEndpoint(): string;
+    public function endpoint(): string;
 
-    public function getHeaders(): array;
+    public function headers(): array;
 
-    public function getBody();
+    public function body();
 }
