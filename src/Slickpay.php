@@ -64,12 +64,14 @@ class Slickpay
      *
      * @param string $request
      * @param array $parameters
+     * @param array $headers
      * @return Slickpay
      */
-    public function setRequest(string $request, array $parameters = []): self
+    public function setRequest(string $request, array $parameters = [], array $headers = []): self
     {
         $this->request = new $request(
-            $parameters
+            $parameters,
+            $headers
         );
 
         return $this;

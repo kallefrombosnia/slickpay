@@ -24,7 +24,7 @@ class ExampleRequest extends AbstractRequest
     public function getHeaders(): array
     {
         return [
-            'a' => 'b',
+            'example' => 'value',
         ];
     }
 

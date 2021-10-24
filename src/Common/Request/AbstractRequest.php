@@ -15,17 +15,31 @@ abstract class AbstractRequest implements RequestInterface
     private array $parameters;
 
     /**
+     * An array of passed headers.
+     *
+     * @var array
+     */
+    private array $headers;
+
+    /**
      * PSR-7 request instance.
      *
      * @var \Psr\Http\Message\RequestInterface
      */
     public \Psr\Http\Message\RequestInterface $request;
 
-    public function __construct(array $parameters)
+    public function __construct(array $parameters, array $headers)
     {
         $this->parameters = $parameters;
 
-        $this->request = new Request($this->getMethod(), $this->getEndpoint(), $this->getHeaders(), \json_encode($this->getBody()));
+        $this->headers = $headers;
+
+        $this->request = new Request(
+            $this->getMethod(),
+            $this->getEndpoint(),
+            \array_merge($this->getHeaders(), $this->headers),
+            \json_encode($this->getBody())
+        );
     }
 
     /**
