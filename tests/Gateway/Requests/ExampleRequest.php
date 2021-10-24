@@ -6,29 +6,29 @@ use Slickpay\Common\Request\AbstractRequest;
 
 class ExampleRequest extends AbstractRequest
 {
-    public function response(): string
+    public function getResponse(): string
     {
         return ExampleResponse::class;
     }
 
-    public function method(): string
+    public function getMethod(): string
     {
         return 'POST';
     }
 
-    public function endpoint(): string
+    public function getEndpoint(): string
     {
         return \sprintf('https://github.com/slickpay/slickpay?foo=%s', $this->getParameter('foo', false));
     }
 
-    public function headers(): array
+    public function getHeaders(): array
     {
         return [
             'a' => 'b',
         ];
     }
 
-    public function body()
+    public function getBody()
     {
         return [];
     }

@@ -25,7 +25,7 @@ abstract class AbstractRequest implements RequestInterface
     {
         $this->parameters = $parameters;
 
-        $this->request = new Request($this->method(), $this->endpoint(), $this->headers(), \json_encode($this->body()));
+        $this->request = new Request($this->getMethod(), $this->getEndpoint(), $this->getHeaders(), \json_encode($this->getBody()));
     }
 
     /**

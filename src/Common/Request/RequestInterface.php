@@ -16,33 +16,33 @@ interface RequestInterface
      *
      * @return string
      */
-    public function response(): string;
+    public function getResponse(): string;
 
     /**
      * Define a request method for given request.
      *
      * @return string
      */
-    public function method(): string;
+    public function getMethod(): string;
 
     /**
      * Define a request endpoint for given request.
      *
      * @return string
      */
-    public function endpoint(): string;
+    public function getEndpoint(): string;
 
     /**
      * Define an array of headers for given request.
      *
      * @return array
      */
-    public function headers(): array;
+    public function getHeaders(): array;
 
     /**
      * Define body for the given request.
      *
      * @return mixed
      */
-    public function body();
+    public function getBody();
 }

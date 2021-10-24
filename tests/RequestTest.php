@@ -29,6 +29,6 @@ class RequestTest extends TestCase
     {
         $this->slickpay->setRequest(ExampleRequest::class, ['foo' => 'bar']);
 
-        $this->assertStringContainsString('bar', $this->slickpay->getRequest()->endpoint());
+        $this->assertStringContainsString('bar', $this->slickpay->getRequest()->getEndpoint());
     }
 }
