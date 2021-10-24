@@ -9,8 +9,8 @@ abstract class AbstractRequest implements RequestInterface
 {
     /**
      * PSR-7 request instance.
-     * 
-     * @var \Psr\Http\Message\RequestInterface 
+     *
+     * @var \Psr\Http\Message\RequestInterface
      */
     public \Psr\Http\Message\RequestInterface $request;
 
@@ -21,7 +21,7 @@ abstract class AbstractRequest implements RequestInterface
 
     /**
      * Returns an instance of PSR-7 request.
-     * 
+     *
      * @return \Psr\Http\Message\RequestInterface
      */
     public function request(): \Psr\Http\Message\RequestInterface

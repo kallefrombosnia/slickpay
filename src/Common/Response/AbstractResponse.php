@@ -9,7 +9,7 @@ abstract class AbstractResponse implements ResponseInterface
 {
     /**
      * PSR-7 response instance.
-     * 
+     *
      * @var MessageInterface
      */
     protected MessageInterface $response;
@@ -21,8 +21,8 @@ abstract class AbstractResponse implements ResponseInterface
 
     /**
      * Returns the instance of PSR-7 response.
-     * 
-     * @return MessageInterface 
+     *
+     * @return MessageInterface
      */
     public function response(): MessageInterface
     {
@@ -31,8 +31,8 @@ abstract class AbstractResponse implements ResponseInterface
 
     /**
      * Returns decoded response body.
-     * 
-     * @return mixed 
+     *
+     * @return mixed
      */
     public function getBody()
     {
