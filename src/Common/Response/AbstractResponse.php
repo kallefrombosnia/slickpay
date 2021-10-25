@@ -3,9 +3,17 @@
 namespace Slickpay\Common\Response;
 
 use Psr\Http\Message\MessageInterface;
+use Slickpay\Common\Request\RequestInterface;
 
 abstract class AbstractResponse implements ResponseInterface
 {
+    /**
+     * Instance of request class.
+     *
+     * @var RequestInterface
+     */
+    protected RequestInterface $request;
+
     /**
      * PSR-7 response instance.
      *
@@ -13,9 +21,21 @@ abstract class AbstractResponse implements ResponseInterface
      */
     protected MessageInterface $response;
 
-    public function __construct(MessageInterface $response)
+    public function __construct(RequestInterface $request, MessageInterface $response)
     {
+        $this->request = $request;
+
         $this->response = $response;
+    }
+
+    /**
+     * Returns an instance of request.
+     *
+     * @return RequestInterface
+     */
+    public function getRequest(): RequestInterface
+    {
+        return $this->request;
     }
 
     /**

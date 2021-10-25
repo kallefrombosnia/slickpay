@@ -126,6 +126,6 @@ class Slickpay
 
         $responseClass = $this->request->getResponse();
 
-        return (new $responseClass($response))->update();
+        return (new $responseClass($this->request, $response))->update();
     }
 }
