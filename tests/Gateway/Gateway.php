@@ -2,8 +2,8 @@
 
 namespace Slickpay\Tests\Gateway;
 
-use Slickpay\Common\Gateway\GatewayInterface;
+use Slickpay\Common\Gateway\AbstractGateway;
 
-class Gateway implements GatewayInterface
+class Gateway extends AbstractGateway
 {
 }

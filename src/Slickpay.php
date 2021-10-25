@@ -42,9 +42,9 @@ class Slickpay
      * @param string $gateway
      * @return Slickpay
      */
-    public function setGateway(string $gateway): self
+    public function setGateway(string $gateway, array $config = []): self
     {
-        $this->gateway = new $gateway();
+        $this->gateway = new $gateway($config);
 
         return $this;
     }
