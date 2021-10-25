@@ -3,9 +3,17 @@
 namespace Slickpay\Common\Request;
 
 use GuzzleHttp\Psr7\Request;
+use Slickpay\Common\Gateway\GatewayInterface;
 
 abstract class AbstractRequest implements RequestInterface
 {
+    /**
+     * An instance of Gateway.
+     *
+     * @var GatewayInterface
+     */
+    protected GatewayInterface $gateway;
+
     /**
      * User-passed body for the request.
      *
@@ -34,8 +42,10 @@ abstract class AbstractRequest implements RequestInterface
      */
     public \Psr\Http\Message\RequestInterface $request;
 
-    public function __construct(array $body, array $parameters, array $headers)
+    public function __construct(GatewayInterface $gateway, array $body, array $parameters, array $headers)
     {
+        $this->gateway = $gateway;
+
         $this->body = $body;
 
         $this->parameters = $parameters;
@@ -58,5 +68,15 @@ abstract class AbstractRequest implements RequestInterface
     public function request(): \Psr\Http\Message\RequestInterface
     {
         return $this->request;
+    }
+
+    /**
+     * Returns an instance of Gateway.
+     *
+     * @return GatewayInterface
+     */
+    public function getGateway(): GatewayInterface
+    {
+        return $this->gateway;
     }
 }

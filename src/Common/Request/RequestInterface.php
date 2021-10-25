@@ -2,6 +2,8 @@
 
 namespace Slickpay\Common\Request;
 
+use Slickpay\Common\Gateway\GatewayInterface;
+
 interface RequestInterface
 {
     /**
@@ -10,6 +12,13 @@ interface RequestInterface
      * @return \Psr\Http\Message\RequestInterface
      */
     public function request(): \Psr\Http\Message\RequestInterface;
+
+    /**
+     * Returns an instance of Gateway.
+     *
+     * @return GatewayInterface
+     */
+    public function getGateway(): GatewayInterface;
 
     /**
      * Define a response class for given request.

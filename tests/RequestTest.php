@@ -4,6 +4,7 @@ namespace Slickpay\Tests;
 
 use Slickpay\Slickpay;
 use PHPUnit\Framework\TestCase;
+use Slickpay\Tests\Gateway\Gateway;
 use Slickpay\Common\Request\RequestInterface;
 use Slickpay\Tests\Gateway\Requests\ExampleRequest;
 
@@ -16,6 +17,8 @@ class RequestTest extends TestCase
         parent::setUp();
 
         $this->slickpay = new Slickpay();
+
+        $this->slickpay->setGateway(Gateway::class);
     }
 
     public function testConstructingRequest(): void
@@ -63,5 +66,14 @@ class RequestTest extends TestCase
         $this->slickpay->setRequest(ExampleRequest::class, ['foo' => 'bar']);
 
         $this->assertSame(['foo' => 'bar'], $this->slickpay->getRequest()->getBody());
+    }
+
+    public function testGettingConfigurationInRequest(): void
+    {
+        $this->slickpay->setGateway(Gateway::class, ['foo' => 'bar']);
+
+        $this->slickpay->setRequest(ExampleRequest::class);
+
+        $this->assertEquals('bar', $this->slickpay->getRequest()->getGateway()->getConfigField('foo'));
     }
 }

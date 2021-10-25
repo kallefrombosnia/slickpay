@@ -70,6 +70,7 @@ class Slickpay
     public function setRequest(string $request, array $body = [], array $parameters = [], array $headers = []): self
     {
         $this->request = new $request(
+            $this->gateway,
             $body,
             $parameters,
             $headers
